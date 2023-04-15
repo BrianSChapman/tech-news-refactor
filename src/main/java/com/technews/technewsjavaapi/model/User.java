@@ -9,7 +9,6 @@ import java.util.Objects;
 @Entity
 @JsonIgnoreProperties({"hibernatelazyinitializer", "handler"})
 @Table(name = "user")
-
 public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -114,7 +113,14 @@ public class User implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return loggedin == user.loggedin && Objects.equals(id, user.id) && Objects.equals(username, user.username) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(posts, user.posts) && Objects.equals(votes, user.votes) && Objects.equals(comments, user.comments);
+        return loggedin == user.loggedin &&
+                Objects.equals(id, user.id) &&
+                Objects.equals(username, user.username) &&
+                Objects.equals(email, user.email) &&
+                Objects.equals(password, user.password) &&
+                Objects.equals(posts, user.posts) &&
+                Objects.equals(votes, user.votes) &&
+                Objects.equals(comments, user.comments);
     }
 
     @Override
